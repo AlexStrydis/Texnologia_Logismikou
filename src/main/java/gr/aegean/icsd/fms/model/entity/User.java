@@ -85,7 +85,7 @@ public class User {
      * @param festivalId the festival ID
      * @return true if user has the role in the festival
      */
-    public boolean hasRoleInFestival(gr.aegean.icsd.fms.model.enums.UserRole role, Long festivalId) {
+    public boolean hasRoleInFestival(gr.aegean.icsd.fms.model.enums.UserRoleType role, Long festivalId) {
         return userRoles.stream()
             .anyMatch(ur -> ur.getFestival().getFestivalId().equals(festivalId) 
                 && ur.getRole() == role);
@@ -97,6 +97,6 @@ public class User {
      */
     public boolean isAuthenticated() {
         return userRoles.stream()
-            .anyMatch(ur -> ur.getRole() != gr.aegean.icsd.fms.model.enums.UserRole.VISITOR);
+            .anyMatch(ur -> ur.getRole() != gr.aegean.icsd.fms.model.enums.UserRoleType.VISITOR);
     }
 }

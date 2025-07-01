@@ -6,7 +6,7 @@ import gr.aegean.icsd.fms.model.dto.response.FestivalResponse;
 import gr.aegean.icsd.fms.model.entity.Festival;
 import gr.aegean.icsd.fms.model.entity.User;
 import gr.aegean.icsd.fms.model.enums.PerformanceState;
-import gr.aegean.icsd.fms.model.enums.UserRole;
+import gr.aegean.icsd.fms.model.enums.UserRoleType;
 import gr.aegean.icsd.fms.repository.PerformanceRepository;
 import gr.aegean.icsd.fms.security.CustomUserDetailsService;
 import gr.aegean.icsd.fms.service.FestivalService;
@@ -277,11 +277,11 @@ public class FestivalController {
                 .collect(Collectors.toList());
             
             // Get statistics
-            long totalPerformances = performanceRepository.countByFestivalAndRole(
-                festival.getFestivalId(), null);
-            long scheduledPerformances = performanceRepository.countPerformancesByState(
+            long totalPerformances = performanceRepository.countByFestivalFestivalId(
+                festival.getFestivalId());
+            long scheduledPerformances = performanceRepository.countByFestivalFestivalIdAndState(
                 festival.getFestivalId(), PerformanceState.SCHEDULED);
-            long pendingReviews = performanceRepository.countPerformancesByState(
+            long pendingReviews = performanceRepository.countByFestivalFestivalIdAndState(
                 festival.getFestivalId(), PerformanceState.SUBMITTED);
             
             return FestivalResponse.forOrganizer(

@@ -9,7 +9,7 @@ import gr.aegean.icsd.fms.model.entity.Festival;
 import gr.aegean.icsd.fms.model.entity.User;
 import gr.aegean.icsd.fms.model.entity.UserRole;
 import gr.aegean.icsd.fms.model.enums.FestivalState;
-import gr.aegean.icsd.fms.model.enums.UserRole as Role;
+import gr.aegean.icsd.fms.model.enums.UserRoleType;
 import gr.aegean.icsd.fms.repository.FestivalRepository;
 import gr.aegean.icsd.fms.repository.UserRoleRepository;
 import lombok.RequiredArgsConstructor;
@@ -64,7 +64,7 @@ public class FestivalService {
         Festival savedFestival = festivalRepository.save(festival);
         
         // Assign creator as ORGANIZER
-        userService.assignRole(creator, savedFestival, Role.ORGANIZER);
+        userService.assignRole(creator, savedFestival, UserRoleType.ORGANIZER);
         
         log.info("Festival '{}' created with ID {}", savedFestival.getName(), savedFestival.getFestivalId());
         return savedFestival;
@@ -83,7 +83,7 @@ public class FestivalService {
         Festival festival = findById(festivalId);
         
         // Check if user is organizer
-        if (!userService.hasRoleInFestival(updater.getUserId(), festivalId, Role.ORGANIZER)) {
+        if (!userService.hasRoleInFestival(updater.getUserId(), festivalId, UserRoleType.ORGANIZER)) {
             throw new UnauthorizedException(updater.getUsername(), "update festival", 
                                           "ORGANIZER", "Festival " + festivalId);
         }
@@ -146,7 +146,7 @@ public class FestivalService {
         Festival festival = findById(festivalId);
         
         // Check if user is organizer
-        if (!userService.hasRoleInFestival(deleter.getUserId(), festivalId, Role.ORGANIZER)) {
+        if (!userService.hasRoleInFestival(deleter.getUserId(), festivalId, UserRoleType.ORGANIZER)) {
             throw new UnauthorizedException(deleter.getUsername(), "delete festival", 
                                           "ORGANIZER", "Festival " + festivalId);
         }
@@ -173,7 +173,7 @@ public class FestivalService {
         Festival festival = findById(festivalId);
         
         // Check if user is organizer
-        if (!userService.hasRoleInFestival(advancer.getUserId(), festivalId, Role.ORGANIZER)) {
+        if (!userService.hasRoleInFestival(advancer.getUserId(), festivalId, UserRoleType.ORGANIZER)) {
             throw new UnauthorizedException(advancer.getUsername(), "advance festival state", 
                                           "ORGANIZER", "Festival " + festivalId);
         }
@@ -189,7 +189,7 @@ public class FestivalService {
         switch (currentState) {
             case SUBMISSION:
                 // Ensure all staff are assigned before moving to ASSIGNMENT
-                long staffCount = userRoleRepository.countByFestivalAndRole(festivalId, Role.STAFF);
+                long staffCount = userRoleRepository.countByFestivalAndRole(festivalId, UserRoleType.STAFF);
                 if (staffCount == 0) {
                     throw new IllegalStateException("Cannot advance to ASSIGNMENT: No staff members assigned");
                 }
@@ -222,14 +222,14 @@ public class FestivalService {
         Festival festival = findById(festivalId);
         
         // Check if user is organizer
-        if (!userService.hasRoleInFestival(adder.getUserId(), festivalId, Role.ORGANIZER)) {
+        if (!userService.hasRoleInFestival(adder.getUserId(), festivalId, UserRoleType.ORGANIZER)) {
             throw new UnauthorizedException(adder.getUsername(), "add organizers", 
                                           "ORGANIZER", "Festival " + festivalId);
         }
         
         for (Long userId : userIds) {
             User user = userService.findById(userId);
-            userService.assignRole(user, festival, Role.ORGANIZER);
+            userService.assignRole(user, festival, UserRoleType.ORGANIZER);
         }
     }
     
@@ -246,7 +246,7 @@ public class FestivalService {
         Festival festival = findById(festivalId);
         
         // Check if user is organizer
-        if (!userService.hasRoleInFestival(adder.getUserId(), festivalId, Role.ORGANIZER)) {
+        if (!userService.hasRoleInFestival(adder.getUserId(), festivalId, UserRoleType.ORGANIZER)) {
             throw new UnauthorizedException(adder.getUsername(), "add staff", 
                                           "ORGANIZER", "Festival " + festivalId);
         }
@@ -259,7 +259,7 @@ public class FestivalService {
         
         for (Long userId : userIds) {
             User user = userService.findById(userId);
-            userService.assignRole(user, festival, Role.STAFF);
+            userService.assignRole(user, festival, UserRoleType.STAFF);
         }
     }
     
@@ -308,7 +308,7 @@ public class FestivalService {
      * @return list of festivals
      */
     @Transactional(readOnly = true)
-    public List<Festival> findByUserRole(Long userId, Role role) {
+    public List<Festival> findByUserRole(Long userId, UserRoleType role) {
         return festivalRepository.findByUserRole(userId, role);
     }
     

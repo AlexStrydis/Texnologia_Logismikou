@@ -1,4 +1,4 @@
-package com.example.festival;
+package gr.aegean.icsd.fms;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -25,13 +25,6 @@ class FestivalControllerTest {
     private ObjectMapper objectMapper;
 
     @Test
-    void indexReturnsWelcomeMessage() throws Exception {
-        mockMvc.perform(get("/"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Welcome to the Festival Management API"));
-    }
-
-    @Test
     void createFestival() throws Exception {
         Map<String, Object> payload = Map.of(
                 "name", "RockFest",
@@ -41,7 +34,7 @@ class FestivalControllerTest {
                 "location", "Athens"
         );
 
-        mockMvc.perform(post("/festivals")
+        mockMvc.perform(post("/api/festivals")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(payload)))
                 .andExpect(status().isOk())
@@ -59,7 +52,7 @@ class FestivalControllerTest {
                 "location", "Athens"
         );
 
-        String response = mockMvc.perform(post("/festivals")
+        String response = mockMvc.perform(post("/api/festivals")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(payload)))
                 .andExpect(status().isOk())
@@ -71,16 +64,16 @@ class FestivalControllerTest {
                 "description", "Updated"
         );
 
-        mockMvc.perform(put("/festivals/" + id)
+        mockMvc.perform(put("/api/festivals/" + id)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(updatePayload)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.description").value("Updated"));
 
-        mockMvc.perform(delete("/festivals/" + id))
+        mockMvc.perform(delete("/api/festivals/" + id))
                 .andExpect(status().isNoContent());
 
-        mockMvc.perform(get("/festivals/" + id))
+        mockMvc.perform(get("/api/festivals/" + id))
                 .andExpect(status().isNotFound());
     }
 
@@ -94,12 +87,12 @@ class FestivalControllerTest {
                 "location", "Patras"
         );
 
-        mockMvc.perform(post("/festivals")
+        mockMvc.perform(post("/api/festivals")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(payload)))
                 .andExpect(status().isOk());
 
-        mockMvc.perform(get("/festivals")
+        mockMvc.perform(get("/api/festivals")
                         .param("name", "SearchFest"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].name").value("SearchFest"));

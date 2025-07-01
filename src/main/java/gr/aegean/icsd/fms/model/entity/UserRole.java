@@ -50,7 +50,7 @@ public class UserRole {
     @NotNull(message = "Role is required")
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
-    private gr.aegean.icsd.fms.model.enums.UserRole role;
+    private gr.aegean.icsd.fms.model.enums.UserRoleType role;
     
     @Column(name = "assigned_at", nullable = false, updatable = false)
     private LocalDateTime assignedAt;
@@ -79,12 +79,12 @@ public class UserRole {
         // This would be better handled at service level with proper queries
         
         // ORGANIZER cannot have any other role in the same festival
-        if (role == gr.aegean.icsd.fms.model.enums.UserRole.ORGANIZER) {
+        if (role == gr.aegean.icsd.fms.model.enums.UserRoleType.ORGANIZER) {
             // Ensure user doesn't have other roles in this festival
             boolean hasOtherRoles = user.getUserRoles().stream()
                 .anyMatch(ur -> ur.getFestival().equals(this.festival) 
                     && !ur.equals(this) 
-                    && ur.getRole() != gr.aegean.icsd.fms.model.enums.UserRole.ORGANIZER);
+                    && ur.getRole() != gr.aegean.icsd.fms.model.enums.UserRoleType.ORGANIZER);
             
             if (hasOtherRoles) {
                 throw new IllegalStateException(
@@ -93,10 +93,10 @@ public class UserRole {
         }
         
         // ARTIST and STAFF are mutually exclusive in the same festival
-        if (role == gr.aegean.icsd.fms.model.enums.UserRole.ARTIST) {
+        if (role == gr.aegean.icsd.fms.model.enums.UserRoleType.ARTIST) {
             boolean isStaff = user.getUserRoles().stream()
                 .anyMatch(ur -> ur.getFestival().equals(this.festival) 
-                    && ur.getRole() == gr.aegean.icsd.fms.model.enums.UserRole.STAFF);
+                    && ur.getRole() == gr.aegean.icsd.fms.model.enums.UserRoleType.STAFF);
             
             if (isStaff) {
                 throw new IllegalStateException(
@@ -104,10 +104,10 @@ public class UserRole {
             }
         }
         
-        if (role == gr.aegean.icsd.fms.model.enums.UserRole.STAFF) {
+        if (role == gr.aegean.icsd.fms.model.enums.UserRoleType.STAFF) {
             boolean isArtist = user.getUserRoles().stream()
                 .anyMatch(ur -> ur.getFestival().equals(this.festival) 
-                    && ur.getRole() == gr.aegean.icsd.fms.model.enums.UserRole.ARTIST);
+                    && ur.getRole() == gr.aegean.icsd.fms.model.enums.UserRoleType.ARTIST);
             
             if (isArtist) {
                 throw new IllegalStateException(

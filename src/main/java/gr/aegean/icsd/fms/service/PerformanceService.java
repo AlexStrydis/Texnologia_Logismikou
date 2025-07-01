@@ -4,11 +4,12 @@ import gr.aegean.icsd.fms.exception.InvalidStateException;
 import gr.aegean.icsd.fms.exception.ResourceNotFoundException;
 import gr.aegean.icsd.fms.exception.UnauthorizedException;
 import gr.aegean.icsd.fms.model.dto.request.CreatePerformanceRequest;
+import gr.aegean.icsd.fms.model.dto.request.UpdatePerformanceRequest;
 import gr.aegean.icsd.fms.model.dto.request.SubmitPerformanceRequest;
 import gr.aegean.icsd.fms.model.entity.*;
 import gr.aegean.icsd.fms.model.enums.FestivalState;
 import gr.aegean.icsd.fms.model.enums.PerformanceState;
-import gr.aegean.icsd.fms.model.enums.UserRole as Role;
+import gr.aegean.icsd.fms.model.enums.UserRoleType;
 import gr.aegean.icsd.fms.repository.PerformanceArtistRepository;
 import gr.aegean.icsd.fms.repository.PerformanceRepository;
 import lombok.RequiredArgsConstructor;
@@ -81,7 +82,7 @@ public class PerformanceService {
         performanceArtistRepository.save(mainArtist);
         
         // Assign ARTIST role to creator in this festival
-        userService.assignRole(creator, festival, Role.ARTIST);
+        userService.assignRole(creator, festival, UserRoleType.ARTIST);
         
         log.info("Performance '{}' created with ID {}", savedPerformance.getName(), 
                 savedPerformance.getPerformanceId());
@@ -95,7 +96,7 @@ public class PerformanceService {
      * @param updater the user performing the update
      * @return the updated performance
      */
-    public Performance updatePerformance(Long performanceId, CreatePerformanceRequest updates, 
+    public Performance updatePerformance(Long performanceId, UpdatePerformanceRequest updates,
                                        User updater) {
         log.info("Updating performance {} by user {}", performanceId, updater.getUsername());
         
@@ -199,7 +200,7 @@ public class PerformanceService {
         performanceArtistRepository.save(artist);
         
         // Assign ARTIST role to band member in this festival
-        userService.assignRole(bandMember, performance.getFestival(), Role.ARTIST);
+        userService.assignRole(bandMember, performance.getFestival(), UserRoleType.ARTIST);
     }
     
     /**
@@ -294,7 +295,7 @@ public class PerformanceService {
         
         // Check if user is organizer
         if (!userService.hasRoleInFestival(assigner.getUserId(), festival.getFestivalId(), 
-                                          Role.ORGANIZER)) {
+                                          UserRoleType.ORGANIZER)) {
             throw new UnauthorizedException(assigner.getUsername(), "assign staff", 
                                           "ORGANIZER", "Festival " + festival.getFestivalId());
         }
@@ -308,7 +309,7 @@ public class PerformanceService {
         User staff = userService.findById(staffId);
         
         // Check if user is staff in this festival
-        if (!userService.hasRoleInFestival(staffId, festival.getFestivalId(), Role.STAFF)) {
+        if (!userService.hasRoleInFestival(staffId, festival.getFestivalId(), UserRoleType.STAFF)) {
             throw new IllegalArgumentException("User is not a staff member of this festival");
         }
         
@@ -371,7 +372,7 @@ public class PerformanceService {
         
         // Check if user is organizer
         if (!userService.hasRoleInFestival(approver.getUserId(), festival.getFestivalId(), 
-                                          Role.ORGANIZER)) {
+                                          UserRoleType.ORGANIZER)) {
             throw new UnauthorizedException(approver.getUsername(), "approve performance", 
                                           "ORGANIZER", "Festival " + festival.getFestivalId());
         }
@@ -408,7 +409,7 @@ public class PerformanceService {
         
         // Check if user is organizer
         if (!userService.hasRoleInFestival(rejecter.getUserId(), festival.getFestivalId(), 
-                                          Role.ORGANIZER)) {
+                                          UserRoleType.ORGANIZER)) {
             throw new UnauthorizedException(rejecter.getUsername(), "reject performance", 
                                           "ORGANIZER", "Festival " + festival.getFestivalId());
         }
@@ -495,7 +496,7 @@ public class PerformanceService {
         
         // Check if user is organizer
         if (!userService.hasRoleInFestival(acceptor.getUserId(), festival.getFestivalId(), 
-                                          Role.ORGANIZER)) {
+                                          UserRoleType.ORGANIZER)) {
             throw new UnauthorizedException(acceptor.getUsername(), "accept performance", 
                                           "ORGANIZER", "Festival " + festival.getFestivalId());
         }

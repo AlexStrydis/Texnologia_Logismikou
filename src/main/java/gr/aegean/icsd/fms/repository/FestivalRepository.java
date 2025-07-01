@@ -108,7 +108,7 @@ public interface FestivalRepository extends JpaRepository<Festival, Long> {
            "AND ur.role = :role " +
            "ORDER BY ur.festival.startDate, ur.festival.name")
     List<Festival> findByUserRole(@Param("userId") Long userId,
-                                  @Param("role") gr.aegean.icsd.fms.model.enums.UserRole role);
+                                  @Param("role") gr.aegean.icsd.fms.model.enums.UserRoleType role);
     
     /**
      * Find festivals where user is an organizer

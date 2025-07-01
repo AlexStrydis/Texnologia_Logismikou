@@ -41,7 +41,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
            "WHERE ur.festival.festivalId = :festivalId " +
            "AND ur.role = :role")
     Set<User> findByRoleInFestival(@Param("festivalId") Long festivalId, 
-                                   @Param("role") gr.aegean.icsd.fms.model.enums.UserRole role);
+                                   @Param("role") gr.aegean.icsd.fms.model.enums.UserRoleType role);
     
     /**
      * Find all staff members of a festival
@@ -85,7 +85,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
            "AND ur.role = :role")
     boolean hasRoleInFestival(@Param("userId") Long userId,
                               @Param("festivalId") Long festivalId,
-                              @Param("role") gr.aegean.icsd.fms.model.enums.UserRole role);
+                              @Param("role") gr.aegean.icsd.fms.model.enums.UserRoleType role);
     
     /**
      * Find artists of a specific performance

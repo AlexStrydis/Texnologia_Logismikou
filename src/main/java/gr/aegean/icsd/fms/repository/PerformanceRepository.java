@@ -25,6 +25,16 @@ public interface PerformanceRepository extends JpaRepository<Performance, Long> 
      * @return list of performances in the festival
      */
     List<Performance> findByFestivalFestivalId(Long festivalId);
+
+    /**
+     * Count performances in a festival
+     */
+    long countByFestivalFestivalId(Long festivalId);
+
+    /**
+     * Count performances by state in a festival
+     */
+    long countByFestivalFestivalIdAndState(Long festivalId, PerformanceState state);
     
     /**
      * Find performances by festival and state

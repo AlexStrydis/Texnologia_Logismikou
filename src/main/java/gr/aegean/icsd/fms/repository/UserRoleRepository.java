@@ -49,7 +49,7 @@ public interface UserRoleRepository extends JpaRepository<UserRole, Long> {
      * @return list of user roles
      */
     List<UserRole> findByFestivalFestivalIdAndRole(Long festivalId, 
-                                                    gr.aegean.icsd.fms.model.enums.UserRole role);
+                                                    gr.aegean.icsd.fms.model.enums.UserRoleType role);
     
     /**
      * Check if a user has a specific role in a festival
@@ -64,7 +64,7 @@ public interface UserRoleRepository extends JpaRepository<UserRole, Long> {
            "AND ur.role = :role")
     boolean existsByUserAndFestivalAndRole(@Param("userId") Long userId,
                                            @Param("festivalId") Long festivalId,
-                                           @Param("role") gr.aegean.icsd.fms.model.enums.UserRole role);
+                                           @Param("role") gr.aegean.icsd.fms.model.enums.UserRoleType role);
     
     /**
      * Check if a user has any role in a festival
@@ -84,7 +84,7 @@ public interface UserRoleRepository extends JpaRepository<UserRole, Long> {
            "WHERE ur.festival.festivalId = :festivalId " +
            "AND ur.role = :role")
     long countByFestivalAndRole(@Param("festivalId") Long festivalId,
-                                @Param("role") gr.aegean.icsd.fms.model.enums.UserRole role);
+                                @Param("role") gr.aegean.icsd.fms.model.enums.UserRoleType role);
     
     /**
      * Delete all roles for a user in a festival

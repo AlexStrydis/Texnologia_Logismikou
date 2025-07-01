@@ -161,7 +161,7 @@ public class Festival {
      * @param role the role to filter by
      * @return set of users with the specified role
      */
-    public Set<User> getUsersByRole(gr.aegean.icsd.fms.model.enums.UserRole role) {
+    public Set<User> getUsersByRole(gr.aegean.icsd.fms.model.enums.UserRoleType role) {
         Set<User> users = new HashSet<>();
         for (UserRole userRole : userRoles) {
             if (userRole.getRole() == role) {

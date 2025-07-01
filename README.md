@@ -17,6 +17,9 @@ The application exposes basic REST endpoints:
 - `PUT /festivals/{id}` – update a festival
 - `DELETE /festivals/{id}` – delete a festival
 - `PUT /festivals/{id}/status` – update festival status
+- `POST /festivals/{festivalId}/performances` – create a performance for a festival
+- `GET /festivals/{festivalId}/performances` – list performances of a festival
+- `GET /festivals/{festivalId}/performances/{id}` – view a performance
 
 ## Testing
 

@@ -1,4 +1,4 @@
-package com.example.festival;
+package gr.aegean.icsd.fms;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -32,7 +32,7 @@ class PerformanceControllerTest {
                 "location", "Athens"
         );
 
-        String festivalResponse = mockMvc.perform(post("/festivals")
+        String festivalResponse = mockMvc.perform(post("/api/festivals")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(festivalPayload)))
                 .andExpect(status().isOk())
@@ -48,13 +48,13 @@ class PerformanceControllerTest {
                 "bandMembers", List.of("Alice", "Bob")
         );
 
-        mockMvc.perform(post("/festivals/" + festivalId + "/performances")
+        mockMvc.perform(post("/api/festivals/" + festivalId + "/performances")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(perfPayload)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").exists());
 
-        mockMvc.perform(get("/festivals/" + festivalId + "/performances"))
+        mockMvc.perform(get("/api/festivals/" + festivalId + "/performances"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].name").value("My Band"));
     }

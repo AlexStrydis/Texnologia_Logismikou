@@ -3,7 +3,7 @@ package gr.aegean.icsd.fms.service;
 import gr.aegean.icsd.fms.exception.ResourceNotFoundException;
 import gr.aegean.icsd.fms.model.entity.User;
 import gr.aegean.icsd.fms.model.entity.UserRole;
-import gr.aegean.icsd.fms.model.enums.UserRole as Role;
+import gr.aegean.icsd.fms.model.enums.UserRoleType;
 import gr.aegean.icsd.fms.repository.UserRepository;
 import gr.aegean.icsd.fms.repository.UserRoleRepository;
 import lombok.RequiredArgsConstructor;
@@ -82,7 +82,7 @@ public class UserService {
      * @return true if user has the role
      */
     @Transactional(readOnly = true)
-    public boolean hasRoleInFestival(Long userId, Long festivalId, Role role) {
+    public boolean hasRoleInFestival(Long userId, Long festivalId, UserRoleType role) {
         return userRoleRepository.existsByUserAndFestivalAndRole(userId, festivalId, role);
     }
     
@@ -93,14 +93,14 @@ public class UserService {
      * @param role the role to assign
      * @return the created user role
      */
-    public UserRole assignRole(User user, gr.aegean.icsd.fms.model.entity.Festival festival, Role role) {
+    public UserRole assignRole(User user, gr.aegean.icsd.fms.model.entity.Festival festival, UserRoleType role) {
         log.info("Assigning role {} to user {} in festival {}", 
                 role, user.getUsername(), festival.getName());
         
         // Check if user already has a role in this festival
         Optional<UserRole> existingRole = userRoleRepository.findByUserAndFestival(
             user.getUserId(), festival.getFestivalId());
-        
+
         if (existingRole.isPresent()) {
             UserRole existing = existingRole.get();
             if (existing.getRole() == role) {
@@ -134,15 +134,15 @@ public class UserService {
      * @param newRole the new role
      * @return true if change is allowed
      */
-    private boolean canChangeRole(Role currentRole, Role newRole) {
+    private boolean canChangeRole(UserRoleType currentRole, UserRoleType newRole) {
         // ORGANIZER cannot change to other roles
-        if (currentRole == Role.ORGANIZER) {
+        if (currentRole == UserRoleType.ORGANIZER) {
             return false;
         }
         
         // Cannot change between ARTIST and STAFF
-        if ((currentRole == Role.ARTIST && newRole == Role.STAFF) ||
-            (currentRole == Role.STAFF && newRole == Role.ARTIST)) {
+        if ((currentRole == UserRoleType.ARTIST && newRole == UserRoleType.STAFF) ||
+            (currentRole == UserRoleType.STAFF && newRole == UserRoleType.ARTIST)) {
             return false;
         }
         
@@ -166,7 +166,7 @@ public class UserService {
      * @return set of users
      */
     @Transactional(readOnly = true)
-    public Set<User> findUsersByRoleInFestival(Long festivalId, Role role) {
+    public Set<User> findUsersByRoleInFestival(Long festivalId, UserRoleType role) {
         return userRepository.findByRoleInFestival(festivalId, role);
     }
     

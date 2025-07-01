@@ -5,7 +5,7 @@ package gr.aegean.icsd.fms.model.enums;
  * Note: VISITOR is a pseudo-role for non-authenticated or users without specific festival roles.
  * All other roles are festival-specific.
  */
-public enum UserRole {
+public enum UserRoleType {
     /**
      * Anonymous or authenticated user with read-only access
      */
@@ -42,7 +42,7 @@ public enum UserRole {
      * @param other the other role to check
      * @return true if roles can be combined
      */
-    public boolean canCombineWith(UserRole other) {
+    public boolean canCombineWith(UserRoleType other) {
         // ORGANIZER cannot have any other role in the same festival
         if (this == ORGANIZER || other == ORGANIZER) {
             return false;

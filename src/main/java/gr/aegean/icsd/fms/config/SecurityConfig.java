@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  */
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
     
@@ -44,21 +44,21 @@ public class SecurityConfig {
             .and()
             
             // Configure authorization rules
-            .authorizeRequests()
+            .authorizeHttpRequests(auth -> auth
                 // Public endpoints
-                .antMatchers("/api/auth/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/festivals/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/performances/**").permitAll()
-                
+                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/festivals/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/performances/**").permitAll()
+
                 // Swagger UI
-                .antMatchers("/swagger-ui/**", "/swagger-ui.html", "/api-docs/**").permitAll()
-                
+                .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/api-docs/**").permitAll()
+
                 // Health check
-                .antMatchers("/actuator/health").permitAll()
-                
+                .requestMatchers("/actuator/health").permitAll()
+
                 // All other endpoints require authentication
                 .anyRequest().authenticated()
-            .and()
+            )
             
             // Add JWT filter
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

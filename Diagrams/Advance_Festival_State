@@ -1,0 +1,133 @@
+<svg viewBox="0 0 1100 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="550" y="30" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Sequence Diagram - Advance Festival State</text>
+  
+  <!-- Actors/Objects -->
+  <!-- Organizer -->
+  <rect x="50" y="70" width="100" height="50" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="100" y="100" text-anchor="middle" font-family="Arial" font-size="14">Organizer</text>
+  <line x1="100" y1="120" x2="100" y2="750" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- UI -->
+  <rect x="220" y="70" width="100" height="50" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="270" y="100" text-anchor="middle" font-family="Arial" font-size="14">UI</text>
+  <line x1="270" y1="120" x2="270" y2="750" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Controller -->
+  <rect x="390" y="70" width="100" height="50" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="440" y="100" text-anchor="middle" font-family="Arial" font-size="14">Controller</text>
+  <line x1="440" y1="120" x2="440" y2="750" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Service -->
+  <rect x="560" y="70" width="100" height="50" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="610" y="100" text-anchor="middle" font-family="Arial" font-size="14">Service</text>
+  <line x1="610" y1="120" x2="610" y2="750" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Repository -->
+  <rect x="730" y="70" width="100" height="50" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="780" y="100" text-anchor="middle" font-family="Arial" font-size="14">Repository</text>
+  <line x1="780" y1="120" x2="780" y2="750" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Database -->
+  <rect x="900" y="70" width="100" height="50" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="950" y="100" text-anchor="middle" font-family="Arial" font-size="14">Database</text>
+  <line x1="950" y1="120" x2="950" y2="750" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Messages -->
+  
+  <!-- 1. Request state advance -->
+  <line x1="100" y1="150" x2="270" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="185" y="145" text-anchor="middle" font-family="Arial" font-size="12">1: advanceFestivalState()</text>
+  <rect x="270" y="150" width="5" height="20" fill="#333"/>
+  
+  <!-- 2. Call controller -->
+  <line x1="270" y1="180" x2="440" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="355" y="175" text-anchor="middle" font-family="Arial" font-size="12">2: advanceState(festivalId)</text>
+  <rect x="440" y="180" width="5" height="400" fill="#333"/>
+  
+  <!-- 3. Check authorization -->
+  <line x1="440" y1="200" x2="610" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="525" y="195" text-anchor="middle" font-family="Arial" font-size="12">3: checkOrganizer(userId, festivalId)</text>
+  <rect x="610" y="200" width="5" height="360" fill="#333"/>
+  
+  <!-- 4. Get festival -->
+  <line x1="610" y1="220" x2="780" y2="220" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="695" y="215" text-anchor="middle" font-family="Arial" font-size="12">4: findById(festivalId)</text>
+  <rect x="780" y="220" width="5" height="60" fill="#333"/>
+  
+  <!-- 5. SQL Query -->
+  <line x1="780" y1="240" x2="950" y2="240" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="865" y="235" text-anchor="middle" font-family="Arial" font-size="11">5: SELECT * FROM festivals WHERE id=?</text>
+  
+  <!-- 6. Festival object -->
+  <line x1="950" y1="260" x2="780" y2="260" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="865" y="275" text-anchor="middle" font-family="Arial" font-size="11">6: Festival object</text>
+  
+  <!-- 7. Validate state transition -->
+  <rect x="610" y="300" width="5" height="40" fill="#333"/>
+  <text x="615" y="320" font-family="Arial" font-size="11">validateTransition()</text>
+  
+  <!-- State transition table -->
+  <rect x="650" y="290" width="400" height="100" fill="#f0f0f0" stroke="#666" stroke-width="1"/>
+  <text x="850" y="310" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">Valid State Transitions:</text>
+  <text x="660" y="330" font-family="Arial" font-size="10">CREATED → SUBMISSION</text>
+  <text x="660" y="345" font-family="Arial" font-size="10">SUBMISSION → ASSIGNMENT</text>
+  <text x="660" y="360" font-family="Arial" font-size="10">ASSIGNMENT → REVIEW</text>
+  <text x="860" y="330" font-family="Arial" font-size="10">REVIEW → SCHEDULING</text>
+  <text x="860" y="345" font-family="Arial" font-size="10">SCHEDULING → FINAL_SUBMISSION</text>
+  <text x="860" y="360" font-family="Arial" font-size="10">FINAL_SUBMISSION → DECISION</text>
+  <text x="860" y="375" font-family="Arial" font-size="10">DECISION → ANNOUNCED</text>
+  
+  <!-- 8. Update state -->
+  <line x1="610" y1="410" x2="780" y2="410" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="695" y="405" text-anchor="middle" font-family="Arial" font-size="12">8: updateState(festivalId, newState)</text>
+  
+  <!-- 9. SQL Update -->
+  <line x1="780" y1="430" x2="950" y2="430" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="865" y="425" text-anchor="middle" font-family="Arial" font-size="11">9: UPDATE festivals SET state=? WHERE id=?</text>
+  
+  <!-- 10. Success -->
+  <line x1="950" y1="450" x2="780" y2="450" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="865" y="465" text-anchor="middle" font-family="Arial" font-size="11">10: success</text>
+  
+  <!-- 11. Log transition -->
+  <line x1="610" y1="480" x2="780" y2="480" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="695" y="475" text-anchor="middle" font-family="Arial" font-size="12">11: logStateChange(festival, oldState, newState)</text>
+  
+  <!-- 12. SQL Insert log -->
+  <line x1="780" y1="500" x2="950" y2="500" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="865" y="495" text-anchor="middle" font-family="Arial" font-size="11">12: INSERT INTO audit_log...</text>
+  
+  <!-- 13. Return success -->
+  <line x1="780" y1="520" x2="610" y2="520" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="695" y="535" text-anchor="middle" font-family="Arial" font-size="11">13: logged</text>
+  
+  <!-- 14. Return to controller -->
+  <line x1="610" y1="540" x2="440" y2="540" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="525" y="555" text-anchor="middle" font-family="Arial" font-size="11">14: success</text>
+  
+  <!-- 15. Return to UI -->
+  <line x1="440" y1="570" x2="270" y2="570" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="355" y="585" text-anchor="middle" font-family="Arial" font-size="11">15: displayResult(newState)</text>
+  
+  <!-- 16. Show success -->
+  <line x1="270" y1="600" x2="100" y2="600" stroke="#00cc00" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-green)"/>
+  <text x="185" y="595" text-anchor="middle" font-family="Arial" font-size="11" fill="#00cc00">16: "Festival advanced to [newState]"</text>
+  
+  <!-- Error handling note -->
+  <rect x="50" y="650" width="500" height="80" fill="#ffffcc" stroke="#666" stroke-width="1"/>
+  <text x="300" y="670" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">Error Handling:</text>
+  <text x="60" y="690" font-family="Arial" font-size="11">• Invalid state transition → throw InvalidStateTransitionException</text>
+  <text x="60" y="705" font-family="Arial" font-size="11">• User not ORGANIZER → throw UnauthorizedException</text>
+  <text x="60" y="720" font-family="Arial" font-size="11">• Festival not found → throw NotFoundException</text>
+  
+  <!-- Arrow marker definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#00cc00"/>
+    </marker>
+  </defs>
+</svg>

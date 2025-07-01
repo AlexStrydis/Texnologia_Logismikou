@@ -1,0 +1,141 @@
+<svg viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Activity Diagram - Create Festival</text>
+  
+  <!-- Start Node -->
+  <circle cx="300" cy="70" r="15" fill="#333"/>
+  
+  <!-- Activities -->
+  
+  <!-- Artist logs in -->
+  <rect x="220" y="100" width="160" height="50" rx="25" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="300" y="130" text-anchor="middle" font-family="Arial" font-size="12">Artist logs in</text>
+  
+  <!-- Select Festival -->
+  <rect x="220" y="180" width="160" height="50" rx="25" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="300" y="210" text-anchor="middle" font-family="Arial" font-size="12">Select Festival</text>
+  
+  <!-- Decision: Festival in SUBMISSION? -->
+  <polygon points="300,260 370,290 300,320 230,290" fill="#ffe6e6" stroke="#e24a4a" stroke-width="2"/>
+  <text x="300" y="290" text-anchor="middle" font-family="Arial" font-size="11">Festival in</text>
+  <text x="300" y="303" text-anchor="middle" font-family="Arial" font-size="11">SUBMISSION?</text>
+  
+  <!-- Reject: Wrong state -->
+  <rect x="400" y="270" width="160" height="40" rx="20" fill="#ffd6d6" stroke="#cc0000" stroke-width="2"/>
+  <text x="480" y="295" text-anchor="middle" font-family="Arial" font-size="11">Show Error:</text>
+  <text x="480" y="308" text-anchor="middle" font-family="Arial" font-size="11">"Wrong festival state"</text>
+  
+  <!-- Enter Performance Details -->
+  <rect x="220" y="350" width="160" height="50" rx="25" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="300" y="375" text-anchor="middle" font-family="Arial" font-size="12">Enter Performance</text>
+  <text x="300" y="388" text-anchor="middle" font-family="Arial" font-size="12">Details</text>
+  
+  <!-- Decision: Name unique? -->
+  <polygon points="300,430 370,460 300,490 230,460" fill="#ffe6e6" stroke="#e24a4a" stroke-width="2"/>
+  <text x="300" y="460" text-anchor="middle" font-family="Arial" font-size="11">Performance</text>
+  <text x="300" y="473" text-anchor="middle" font-family="Arial" font-size="11">name unique?</text>
+  
+  <!-- Reject: Duplicate name -->
+  <rect x="400" y="440" width="160" height="40" rx="20" fill="#ffd6d6" stroke="#cc0000" stroke-width="2"/>
+  <text x="480" y="465" text-anchor="middle" font-family="Arial" font-size="11">Show Error:</text>
+  <text x="480" y="478" text-anchor="middle" font-family="Arial" font-size="11">"Name already exists"</text>
+  
+  <!-- Create Performance -->
+  <rect x="220" y="520" width="160" height="50" rx="25" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="300" y="545" text-anchor="middle" font-family="Arial" font-size="12">Create Performance</text>
+  <text x="300" y="558" text-anchor="middle" font-family="Arial" font-size="12">(State: CREATED)</text>
+  
+  <!-- Decision: Submit now? -->
+  <polygon points="300,600 370,630 300,660 230,630" fill="#ffe6e6" stroke="#e24a4a" stroke-width="2"/>
+  <text x="300" y="630" text-anchor="middle" font-family="Arial" font-size="11">Submit</text>
+  <text x="300" y="643" text-anchor="middle" font-family="Arial" font-size="11">immediately?</text>
+  
+  <!-- Save as draft -->
+  <rect x="50" y="610" width="140" height="40" rx="20" fill="#e6ffe6" stroke="#4ae24a" stroke-width="2"/>
+  <text x="120" y="635" text-anchor="middle" font-family="Arial" font-size="11">Save as Draft</text>
+  
+  <!-- Decision: All fields complete? -->
+  <polygon points="300,690 370,720 300,750 230,720" fill="#ffe6e6" stroke="#e24a4a" stroke-width="2"/>
+  <text x="300" y="720" text-anchor="middle" font-family="Arial" font-size="11">All required</text>
+  <text x="300" y="733" text-anchor="middle" font-family="Arial" font-size="11">fields complete?</text>
+  
+  <!-- Reject: Incomplete -->
+  <rect x="400" y="700" width="160" height="40" rx="20" fill="#ffd6d6" stroke="#cc0000" stroke-width="2"/>
+  <text x="480" y="725" text-anchor="middle" font-family="Arial" font-size="11">Show Error:</text>
+  <text x="480" y="738" text-anchor="middle" font-family="Arial" font-size="11">"Missing required fields"</text>
+  
+  <!-- Submit Performance -->
+  <rect x="220" y="780" width="160" height="50" rx="25" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="300" y="805" text-anchor="middle" font-family="Arial" font-size="12">Submit Performance</text>
+  <text x="300" y="818" text-anchor="middle" font-family="Arial" font-size="12">(State: SUBMITTED)</text>
+  
+  <!-- End Node -->
+  <circle cx="300" cy="860" r="15" fill="#333"/>
+  <circle cx="300" cy="860" r="10" fill="white"/>
+  
+  <!-- Flow arrows -->
+  <line x1="300" y1="85" x2="300" y2="100" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="300" y1="150" x2="300" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="300" y1="230" x2="300" y2="260" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- No branch from Festival decision -->
+  <line x1="370" y1="290" x2="400" y2="290" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="380" y="285" font-family="Arial" font-size="10">No</text>
+  
+  <!-- Yes branch from Festival decision -->
+  <line x1="300" y1="320" x2="300" y2="350" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="310" y="335" font-family="Arial" font-size="10">Yes</text>
+  
+  <line x1="300" y1="400" x2="300" y2="430" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- No branch from Name unique decision -->
+  <line x1="370" y1="460" x2="400" y2="460" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="380" y="455" font-family="Arial" font-size="10">No</text>
+  
+  <!-- Yes branch from Name unique decision -->
+  <line x1="300" y1="490" x2="300" y2="520" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="310" y="505" font-family="Arial" font-size="10">Yes</text>
+  
+  <line x1="300" y1="570" x2="300" y2="600" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- No branch from Submit decision -->
+  <line x1="230" y1="630" x2="190" y2="630" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="205" y="625" font-family="Arial" font-size="10">No</text>
+  
+  <!-- Yes branch from Submit decision -->
+  <line x1="300" y1="660" x2="300" y2="690" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="310" y="675" font-family="Arial" font-size="10">Yes</text>
+  
+  <!-- No branch from Complete decision -->
+  <line x1="370" y1="720" x2="400" y2="720" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="380" y="715" font-family="Arial" font-size="10">No</text>
+  
+  <!-- Yes branch from Complete decision -->
+  <line x1="300" y1="750" x2="300" y2="780" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="310" y="765" font-family="Arial" font-size="10">Yes</text>
+  
+  <line x1="300" y1="830" x2="300" y2="845" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Error flows to end -->
+  <line x1="560" y1="290" x2="580" y2="290" stroke="#333" stroke-width="2"/>
+  <line x1="580" y1="290" x2="580" y2="860" stroke="#333" stroke-width="2"/>
+  <line x1="580" y1="860" x2="315" y2="860" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <line x1="560" y1="460" x2="580" y2="460" stroke="#333" stroke-width="2"/>
+  <line x1="580" y1="460" x2="580" y2="860" stroke="#333" stroke-width="2"/>
+  
+  <line x1="560" y1="720" x2="580" y2="720" stroke="#333" stroke-width="2"/>
+  <line x1="580" y1="720" x2="580" y2="860" stroke="#333" stroke-width="2"/>
+  
+  <!-- Draft flow to end -->
+  <line x1="50" y1="630" x2="20" y2="630" stroke="#333" stroke-width="2"/>
+  <line x1="20" y1="630" x2="20" y2="860" stroke="#333" stroke-width="2"/>
+  <line x1="20" y1="860" x2="285" y2="860" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

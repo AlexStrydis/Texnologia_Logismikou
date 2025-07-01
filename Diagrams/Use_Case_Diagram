@@ -1,0 +1,137 @@
+<svg viewBox="0 0 1200 1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- System Boundary -->
+  <rect x="250" y="50" width="700" height="900" fill="none" stroke="#333" stroke-width="3"/>
+  <text x="600" y="40" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold">Festival Management System - Use Cases</text>
+  
+  <!-- Actors -->
+  
+  <!-- Visitor (left) -->
+  <circle cx="100" cy="200" r="25" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="100" y1="225" x2="100" y2="270" stroke="#333" stroke-width="2"/>
+  <line x1="75" y1="240" x2="125" y2="240" stroke="#333" stroke-width="2"/>
+  <line x1="100" y1="270" x2="75" y2="305" stroke="#333" stroke-width="2"/>
+  <line x1="100" y1="270" x2="125" y2="305" stroke="#333" stroke-width="2"/>
+  <text x="100" y="330" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Visitor</text>
+  
+  <!-- Artist (left) -->
+  <circle cx="100" cy="500" r="25" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="100" y1="525" x2="100" y2="570" stroke="#333" stroke-width="2"/>
+  <line x1="75" y1="540" x2="125" y2="540" stroke="#333" stroke-width="2"/>
+  <line x1="100" y1="570" x2="75" y2="605" stroke="#333" stroke-width="2"/>
+  <line x1="100" y1="570" x2="125" y2="605" stroke="#333" stroke-width="2"/>
+  <text x="100" y="630" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Artist</text>
+  
+  <!-- Organizer (right) -->
+  <circle cx="1100" cy="300" r="25" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="1100" y1="325" x2="1100" y2="370" stroke="#333" stroke-width="2"/>
+  <line x1="1075" y1="340" x2="1125" y2="340" stroke="#333" stroke-width="2"/>
+  <line x1="1100" y1="370" x2="1075" y2="405" stroke="#333" stroke-width="2"/>
+  <line x1="1100" y1="370" x2="1125" y2="405" stroke="#333" stroke-width="2"/>
+  <text x="1100" y="430" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Organizer</text>
+  
+  <!-- Staff (right) -->
+  <circle cx="1100" cy="700" r="25" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="1100" y1="725" x2="1100" y2="770" stroke="#333" stroke-width="2"/>
+  <line x1="1075" y1="740" x2="1125" y2="740" stroke="#333" stroke-width="2"/>
+  <line x1="1100" y1="770" x2="1075" y2="805" stroke="#333" stroke-width="2"/>
+  <line x1="1100" y1="770" x2="1125" y2="805" stroke="#333" stroke-width="2"/>
+  <text x="1100" y="830" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Staff</text>
+  
+  <!-- Use Cases - Visitor -->
+  <ellipse cx="400" cy="120" rx="100" ry="35" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="400" y="125" text-anchor="middle" font-family="Arial" font-size="13">Search Festivals</text>
+  
+  <ellipse cx="400" cy="200" rx="100" ry="35" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="400" y="205" text-anchor="middle" font-family="Arial" font-size="13">View Festival Info</text>
+  
+  <ellipse cx="400" cy="280" rx="100" ry="35" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="400" y="285" text-anchor="middle" font-family="Arial" font-size="13">Search Performances</text>
+  
+  <ellipse cx="400" cy="360" rx="100" ry="35" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="400" y="365" text-anchor="middle" font-family="Arial" font-size="13">View Performance Info</text>
+  
+  <!-- Use Cases - Artist -->
+  <ellipse cx="400" cy="450" rx="100" ry="35" fill="#ffe6e6" stroke="#e24a4a" stroke-width="2"/>
+  <text x="400" y="455" text-anchor="middle" font-family="Arial" font-size="13">Create Performance</text>
+  
+  <ellipse cx="400" cy="530" rx="100" ry="35" fill="#ffe6e6" stroke="#e24a4a" stroke-width="2"/>
+  <text x="400" y="535" text-anchor="middle" font-family="Arial" font-size="13">Update Performance</text>
+  
+  <ellipse cx="400" cy="610" rx="100" ry="35" fill="#ffe6e6" stroke="#e24a4a" stroke-width="2"/>
+  <text x="400" y="615" text-anchor="middle" font-family="Arial" font-size="13">Submit Performance</text>
+  
+  <ellipse cx="400" cy="690" rx="100" ry="35" fill="#ffe6e6" stroke="#e24a4a" stroke-width="2"/>
+  <text x="400" y="695" text-anchor="middle" font-family="Arial" font-size="13">Withdraw Performance</text>
+  
+  <ellipse cx="400" cy="770" rx="100" ry="35" fill="#ffe6e6" stroke="#e24a4a" stroke-width="2"/>
+  <text x="400" y="775" text-anchor="middle" font-family="Arial" font-size="13">Add Band Member</text>
+  
+  <ellipse cx="400" cy="850" rx="100" ry="35" fill="#ffe6e6" stroke="#e24a4a" stroke-width="2"/>
+  <text x="400" y="855" text-anchor="middle" font-family="Arial" font-size="13">Final Submission</text>
+  
+  <!-- Use Cases - Organizer -->
+  <ellipse cx="750" cy="120" rx="100" ry="35" fill="#e6ffe6" stroke="#4ae24a" stroke-width="2"/>
+  <text x="750" y="125" text-anchor="middle" font-family="Arial" font-size="13">Create Festival</text>
+  
+  <ellipse cx="750" cy="200" rx="100" ry="35" fill="#e6ffe6" stroke="#4ae24a" stroke-width="2"/>
+  <text x="750" y="205" text-anchor="middle" font-family="Arial" font-size="13">Update Festival</text>
+  
+  <ellipse cx="750" cy="280" rx="100" ry="35" fill="#e6ffe6" stroke="#4ae24a" stroke-width="2"/>
+  <text x="750" y="285" text-anchor="middle" font-family="Arial" font-size="13">Delete Festival</text>
+  
+  <ellipse cx="750" cy="360" rx="100" ry="35" fill="#e6ffe6" stroke="#4ae24a" stroke-width="2"/>
+  <text x="750" y="365" text-anchor="middle" font-family="Arial" font-size="13">Add Staff/Organizer</text>
+  
+  <ellipse cx="750" cy="440" rx="100" ry="35" fill="#e6ffe6" stroke="#4ae24a" stroke-width="2"/>
+  <text x="750" y="440" text-anchor="middle" font-family="Arial" font-size="13">Advance</text>
+  <text x="750" y="455" text-anchor="middle" font-family="Arial" font-size="13">Festival State</text>
+  
+  <ellipse cx="750" cy="530" rx="100" ry="35" fill="#e6ffe6" stroke="#4ae24a" stroke-width="2"/>
+  <text x="750" y="535" text-anchor="middle" font-family="Arial" font-size="13">Assign Staff</text>
+  
+  <ellipse cx="750" cy="610" rx="100" ry="35" fill="#e6ffe6" stroke="#4ae24a" stroke-width="2"/>
+  <text x="750" y="615" text-anchor="middle" font-family="Arial" font-size="13">Approve Performance</text>
+  
+  <ellipse cx="750" cy="690" rx="100" ry="35" fill="#e6ffe6" stroke="#4ae24a" stroke-width="2"/>
+  <text x="750" y="695" text-anchor="middle" font-family="Arial" font-size="13">Reject Performance</text>
+  
+  <ellipse cx="750" cy="770" rx="100" ry="35" fill="#e6ffe6" stroke="#4ae24a" stroke-width="2"/>
+  <text x="750" y="775" text-anchor="middle" font-family="Arial" font-size="13">Accept Performance</text>
+  
+  <!-- Use Cases - Staff -->
+  <ellipse cx="750" cy="850" rx="100" ry="35" fill="#fff0e6" stroke="#e2a04a" stroke-width="2"/>
+  <text x="750" y="855" text-anchor="middle" font-family="Arial" font-size="13">Review Performance</text>
+  
+  <!-- Associations -->
+  
+  <!-- Visitor -->
+  <line x1="125" y1="200" x2="300" y2="120" stroke="#333" stroke-width="1"/>
+  <line x1="125" y1="200" x2="300" y2="200" stroke="#333" stroke-width="1"/>
+  <line x1="125" y1="200" x2="300" y2="280" stroke="#333" stroke-width="1"/>
+  <line x1="125" y1="200" x2="300" y2="360" stroke="#333" stroke-width="1"/>
+  
+  <!-- Artist (includes Visitor) -->
+  <line x1="125" y1="500" x2="300" y2="450" stroke="#333" stroke-width="1"/>
+  <line x1="125" y1="500" x2="300" y2="530" stroke="#333" stroke-width="1"/>
+  <line x1="125" y1="500" x2="300" y2="610" stroke="#333" stroke-width="1"/>
+  <line x1="125" y1="500" x2="300" y2="690" stroke="#333" stroke-width="1"/>
+  <line x1="125" y1="500" x2="300" y2="770" stroke="#333" stroke-width="1"/>
+  <line x1="125" y1="500" x2="300" y2="850" stroke="#333" stroke-width="1"/>
+  
+  <!-- Organizer -->
+  <line x1="1075" y1="300" x2="850" y2="120" stroke="#333" stroke-width="1"/>
+  <line x1="1075" y1="300" x2="850" y2="200" stroke="#333" stroke-width="1"/>
+  <line x1="1075" y1="300" x2="850" y2="280" stroke="#333" stroke-width="1"/>
+  <line x1="1075" y1="300" x2="850" y2="360" stroke="#333" stroke-width="1"/>
+  <line x1="1075" y1="300" x2="850" y2="440" stroke="#333" stroke-width="1"/>
+  <line x1="1075" y1="300" x2="850" y2="530" stroke="#333" stroke-width="1"/>
+  <line x1="1075" y1="300" x2="850" y2="610" stroke="#333" stroke-width="1"/>
+  <line x1="1075" y1="300" x2="850" y2="690" stroke="#333" stroke-width="1"/>
+  <line x1="1075" y1="300" x2="850" y2="770" stroke="#333" stroke-width="1"/>
+  
+  <!-- Staff -->
+  <line x1="1075" y1="700" x2="850" y2="850" stroke="#333" stroke-width="1"/>
+  
+  <!-- Include relationships (inheritance) -->
+  <text x="600" y="950" font-family="Arial" font-size="12" font-style="italic">Note: All authenticated users inherit Visitor capabilities</text>
+</svg>

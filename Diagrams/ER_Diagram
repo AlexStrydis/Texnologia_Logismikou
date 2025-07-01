@@ -1,0 +1,150 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="700" y="30" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold">Festival Management System - Entity Relationship Diagram</text>
+  
+  <!-- User Entity -->
+  <rect x="50" y="350" width="220" height="180" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <rect x="50" y="350" width="220" height="35" fill="#4a90e2"/>
+  <text x="160" y="375" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="white">User</text>
+  <text x="60" y="410" font-family="Arial" font-size="12">PK user_id: INT AUTO_INCREMENT</text>
+  <text x="60" y="430" font-family="Arial" font-size="12">UK username: VARCHAR(50)</text>
+  <text x="60" y="450" font-family="Arial" font-size="12">password: VARCHAR(255)</text>
+  <text x="60" y="470" font-family="Arial" font-size="12">full_name: VARCHAR(100)</text>
+  <text x="60" y="490" font-family="Arial" font-size="12">created_at: TIMESTAMP</text>
+  
+  <!-- Festival Entity -->
+  <rect x="500" y="80" width="250" height="320" fill="#e6ffe6" stroke="#4ae24a" stroke-width="2"/>
+  <rect x="500" y="80" width="250" height="35" fill="#4ae24a"/>
+  <text x="625" y="105" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="white">Festival</text>
+  <text x="510" y="140" font-family="Arial" font-size="12">PK festival_id: INT AUTO_INCREMENT</text>
+  <text x="510" y="160" font-family="Arial" font-size="12">UK name: VARCHAR(100)</text>
+  <text x="510" y="180" font-family="Arial" font-size="12">description: TEXT</text>
+  <text x="510" y="200" font-family="Arial" font-size="12">start_date: DATE</text>
+  <text x="510" y="220" font-family="Arial" font-size="12">end_date: DATE</text>
+  <text x="510" y="240" font-family="Arial" font-size="12">venue: VARCHAR(200)</text>
+  <text x="510" y="260" font-family="Arial" font-size="12">state: ENUM('CREATED',</text>
+  <text x="520" y="280" font-family="Arial" font-size="12">'SUBMISSION', 'ASSIGNMENT',</text>
+  <text x="520" y="300" font-family="Arial" font-size="12">'REVIEW', 'SCHEDULING',</text>
+  <text x="520" y="320" font-family="Arial" font-size="12">'FINAL_SUBMISSION', 'DECISION',</text>
+  <text x="520" y="340" font-family="Arial" font-size="12">'ANNOUNCED')</text>
+  <text x="510" y="360" font-family="Arial" font-size="12">venue_layout: JSON</text>
+  <text x="510" y="380" font-family="Arial" font-size="12">budget_info: JSON</text>
+  <text x="510" y="395" font-family="Arial" font-size="12">created_at: TIMESTAMP</text>
+  
+  <!-- Performance Entity -->
+  <rect x="500" y="450" width="250" height="380" fill="#ffe6e6" stroke="#e24a4a" stroke-width="2"/>
+  <rect x="500" y="450" width="250" height="35" fill="#e24a4a"/>
+  <text x="625" y="475" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="white">Performance</text>
+  <text x="510" y="510" font-family="Arial" font-size="12">PK performance_id: INT AUTO_INCREMENT</text>
+  <text x="510" y="530" font-family="Arial" font-size="12">FK festival_id: INT</text>
+  <text x="510" y="550" font-family="Arial" font-size="12">name: VARCHAR(100)</text>
+  <text x="510" y="570" font-family="Arial" font-size="12">description: TEXT</text>
+  <text x="510" y="590" font-family="Arial" font-size="12">genre: VARCHAR(50)</text>
+  <text x="510" y="610" font-family="Arial" font-size="12">duration: INT</text>
+  <text x="510" y="630" font-family="Arial" font-size="12">state: ENUM('CREATED',</text>
+  <text x="520" y="650" font-family="Arial" font-size="12">'SUBMITTED', 'REVIEWED',</text>
+  <text x="520" y="670" font-family="Arial" font-size="12">'REJECTED', 'APPROVED',</text>
+  <text x="520" y="690" font-family="Arial" font-size="12">'SCHEDULED')</text>
+  <text x="510" y="710" font-family="Arial" font-size="12">technical_requirements: TEXT</text>
+  <text x="510" y="730" font-family="Arial" font-size="12">setlist: JSON</text>
+  <text x="510" y="750" font-family="Arial" font-size="12">merchandise_items: JSON</text>
+  <text x="510" y="770" font-family="Arial" font-size="12">preferred_times: JSON</text>
+  <text x="510" y="790" font-family="Arial" font-size="12">FK assigned_staff_id: INT</text>
+  <text x="510" y="810" font-family="Arial" font-size="12">review_score: DECIMAL(3,2)</text>
+  <text x="510" y="825" font-family="Arial" font-size="12">review_comments: TEXT</text>
+  
+  <!-- UserRole Entity (Junction Table) -->
+  <rect x="50" y="600" width="220" height="160" fill="#fff0e6" stroke="#e2a04a" stroke-width="2"/>
+  <rect x="50" y="600" width="220" height="35" fill="#e2a04a"/>
+  <text x="160" y="625" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="white">UserRole</text>
+  <text x="60" y="660" font-family="Arial" font-size="12">PK user_role_id: INT AUTO_INCREMENT</text>
+  <text x="60" y="680" font-family="Arial" font-size="12">FK user_id: INT</text>
+  <text x="60" y="700" font-family="Arial" font-size="12">FK festival_id: INT</text>
+  <text x="60" y="720" font-family="Arial" font-size="12">role: ENUM('ARTIST', 'STAFF',</text>
+  <text x="70" y="740" font-family="Arial" font-size="12">'ORGANIZER')</text>
+  
+  <!-- PerformanceArtist Entity (Junction Table) -->
+  <rect x="900" y="500" width="240" height="140" fill="#fff0e6" stroke="#e2a04a" stroke-width="2"/>
+  <rect x="900" y="500" width="240" height="35" fill="#e2a04a"/>
+  <text x="1020" y="525" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="white">PerformanceArtist</text>
+  <text x="910" y="560" font-family="Arial" font-size="12">PK perf_artist_id: INT AUTO_INCREMENT</text>
+  <text x="910" y="580" font-family="Arial" font-size="12">FK performance_id: INT</text>
+  <text x="910" y="600" font-family="Arial" font-size="12">FK user_id: INT</text>
+  <text x="910" y="620" font-family="Arial" font-size="12">is_main_artist: BOOLEAN</text>
+  
+  <!-- Relationships -->
+  
+  <!-- User to UserRole (1:N) -->
+  <line x1="160" y1="530" x2="160" y2="600" stroke="#333" stroke-width="2"/>
+  <text x="170" y="545" font-family="Arial" font-size="12">1</text>
+  <text x="170" y="595" font-family="Arial" font-size="12">N</text>
+  <text x="180" y="565" font-family="Arial" font-size="11" font-style="italic">has</text>
+  
+  <!-- Festival to UserRole (1:N) -->
+  <line x1="500" y1="240" x2="270" y2="680" stroke="#333" stroke-width="2"/>
+  <text x="485" y="250" font-family="Arial" font-size="12">1</text>
+  <text x="275" y="675" font-family="Arial" font-size="12">N</text>
+  <text x="350" y="450" font-family="Arial" font-size="11" font-style="italic">has_roles</text>
+  
+  <!-- Festival to Performance (1:N) -->
+  <line x1="625" y1="400" x2="625" y2="450" stroke="#333" stroke-width="2"/>
+  <text x="635" y="415" font-family="Arial" font-size="12">1</text>
+  <text x="635" y="445" font-family="Arial" font-size="12">N</text>
+  <text x="645" y="425" font-family="Arial" font-size="11" font-style="italic">contains</text>
+  <polygon points="615,450 625,440 635,450" fill="#333"/>
+  
+  <!-- Performance to PerformanceArtist (1:N) -->
+  <line x1="750" y1="640" x2="900" y2="570" stroke="#333" stroke-width="2"/>
+  <text x="765" y="635" font-family="Arial" font-size="12">1</text>
+  <text x="885" y="575" font-family="Arial" font-size="12">N</text>
+  <text x="820" y="600" font-family="Arial" font-size="11" font-style="italic">has_artists</text>
+  
+  <!-- User to PerformanceArtist (1:N) -->
+  <line x1="270" y1="440" x2="900" y2="570" stroke="#333" stroke-width="2"/>
+  <text x="285" y="440" font-family="Arial" font-size="12">1</text>
+  <text x="885" y="565" font-family="Arial" font-size="12">N</text>
+  <text x="550" y="500" font-family="Arial" font-size="11" font-style="italic">performs_in</text>
+  
+  <!-- User to Performance (Staff assignment) (1:N) -->
+  <line x1="160" y1="350" x2="160" y2="200" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="160" y1="200" x2="1020" y2="200" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="1020" y1="200" x2="1020" y2="790" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="1020" y1="790" x2="750" y2="790" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="170" y="345" font-family="Arial" font-size="12">1</text>
+  <text x="760" y="785" font-family="Arial" font-size="12">0..N</text>
+  <text x="850" y="795" font-family="Arial" font-size="11" font-style="italic">assigned_as_staff</text>
+  
+  <!-- Legend -->
+  <rect x="1200" y="80" width="180" height="200" fill="#fffacd" stroke="#333" stroke-width="1"/>
+  <text x="1290" y="100" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Legend</text>
+  <text x="1210" y="125" font-family="Arial" font-size="11">PK = Primary Key</text>
+  <text x="1210" y="145" font-family="Arial" font-size="11">FK = Foreign Key</text>
+  <text x="1210" y="165" font-family="Arial" font-size="11">UK = Unique Key</text>
+  <line x1="1210" y1="175" x2="1280" y2="175" stroke="#333" stroke-width="2"/>
+  <text x="1285" y="180" font-family="Arial" font-size="11">1:N Relationship</text>
+  <line x1="1210" y1="195" x2="1280" y2="195" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="1285" y="200" font-family="Arial" font-size="11">Optional Relationship</text>
+  <polygon points="1210,215 1220,205 1230,215" fill="#333"/>
+  <text x="1235" y="220" font-family="Arial" font-size="11">Foreign Key Reference</text>
+  <text x="1210" y="240" font-family="Arial" font-size="11" font-style="italic">Italics = Relationship name</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- Notes -->
+  <rect x="1200" y="300" width="180" height="150" fill="#f0f0f0" stroke="#666" stroke-width="1"/>
+  <text x="1290" y="320" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">Constraints</text>
+  <text x="1210" y="340" font-family="Arial" font-size="10">• Festival name is unique</text>
+  <text x="1210" y="355" font-family="Arial" font-size="10">• Performance name unique</text>
+  <text x="1215" y="370" font-family="Arial" font-size="10">  per festival</text>
+  <text x="1210" y="385" font-family="Arial" font-size="10">• One role per user per</text>
+  <text x="1215" y="400" font-family="Arial" font-size="10">  festival</text>
+  <text x="1210" y="415" font-family="Arial" font-size="10">• ARTIST ≠ STAFF in same</text>
+  <text x="1215" y="430" font-family="Arial" font-size="10">  festival</text>
+  <text x="1210" y="445" font-family="Arial" font-size="10">• ORGANIZER excludes other</text>
+  <text x="1215" y="460" font-family="Arial" font-size="10">  roles</text>
+</svg>

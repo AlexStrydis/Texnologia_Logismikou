@@ -1,0 +1,91 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold">Festival Management System - Context Diagram</text>
+  
+  <!-- Festival Management System (center) -->
+  <rect x="350" y="250" width="300" height="200" fill="#f0f8ff" stroke="#4169e1" stroke-width="3" rx="20"/>
+  <text x="500" y="320" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Festival</text>
+  <text x="500" y="345" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Management</text>
+  <text x="500" y="370" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Backend System</text>
+  
+  <!-- External Actors -->
+  
+  <!-- Visitor (left-top) -->
+  <rect x="50" y="100" width="150" height="80" rx="15" fill="#ffe4e1" stroke="#8b0000" stroke-width="2"/>
+  <text x="125" y="135" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">Visitor</text>
+  <text x="125" y="155" text-anchor="middle" font-family="Arial" font-size="12">(Anonymous/</text>
+  <text x="125" y="170" text-anchor="middle" font-family="Arial" font-size="12">Authenticated)</text>
+  
+  <!-- Artist (left-bottom) -->
+  <rect x="50" y="500" width="150" height="80" rx="15" fill="#ffe4e1" stroke="#8b0000" stroke-width="2"/>
+  <text x="125" y="535" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">Artist</text>
+  <text x="125" y="555" text-anchor="middle" font-family="Arial" font-size="12">(Authenticated</text>
+  <text x="125" y="570" text-anchor="middle" font-family="Arial" font-size="12">User)</text>
+  
+  <!-- Organizer (right-top) -->
+  <rect x="800" y="100" width="150" height="80" rx="15" fill="#ffe4e1" stroke="#8b0000" stroke-width="2"/>
+  <text x="875" y="135" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">Organizer</text>
+  <text x="875" y="155" text-anchor="middle" font-family="Arial" font-size="12">(Authenticated</text>
+  <text x="875" y="170" text-anchor="middle" font-family="Arial" font-size="12">User)</text>
+  
+  <!-- Staff (right-bottom) -->
+  <rect x="800" y="500" width="150" height="80" rx="15" fill="#ffe4e1" stroke="#8b0000" stroke-width="2"/>
+  <text x="875" y="535" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">Staff</text>
+  <text x="875" y="555" text-anchor="middle" font-family="Arial" font-size="12">(Authenticated</text>
+  <text x="875" y="570" text-anchor="middle" font-family="Arial" font-size="12">User)</text>
+  
+  <!-- External Systems -->
+  
+  <!-- User Management System (top) -->
+  <rect x="350" y="80" width="300" height="80" rx="15" fill="#e6e6fa" stroke="#483d8b" stroke-width="2"/>
+  <text x="500" y="115" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">User Management System</text>
+  <text x="500" y="140" text-anchor="middle" font-family="Arial" font-size="12">(External System)</text>
+  
+  <!-- Database (bottom) -->
+  <path d="M 400 570 L 600 570 L 600 620 Q 600 650 500 650 Q 400 650 400 620 Z" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <ellipse cx="500" cy="570" rx="100" ry="30" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <text x="500" y="575" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">Database</text>
+  <text x="500" y="610" text-anchor="middle" font-family="Arial" font-size="12">(Shared with User</text>
+  <text x="500" y="625" text-anchor="middle" font-family="Arial" font-size="12">Management System)</text>
+  
+  <!-- Data Flows -->
+  
+  <!-- Visitor to System -->
+  <line x1="200" y1="140" x2="350" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="250" y="200" font-family="Arial" font-size="12" font-weight="bold">Search/View</text>
+  <text x="240" y="215" font-family="Arial" font-size="11">Festivals & Performances</text>
+  
+  <!-- Artist to System -->
+  <line x1="200" y1="540" x2="350" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="240" y="475" font-family="Arial" font-size="12" font-weight="bold">Create/Submit</text>
+  <text x="235" y="490" font-family="Arial" font-size="11">Performances</text>
+  
+  <!-- Organizer to System -->
+  <line x1="800" y1="140" x2="650" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="700" y="200" font-family="Arial" font-size="12" font-weight="bold">Create/Manage</text>
+  <text x="710" y="215" font-family="Arial" font-size="11">Festivals</text>
+  
+  <!-- Staff to System -->
+  <line x1="800" y1="540" x2="650" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="710" y="475" font-family="Arial" font-size="12" font-weight="bold">Review</text>
+  <text x="690" y="490" font-family="Arial" font-size="11">Performances</text>
+  
+  <!-- System to User Management -->
+  <line x1="500" y1="250" x2="500" y2="160" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="500" y1="160" x2="500" y2="250" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="510" y="205" font-family="Arial" font-size="12" font-weight="bold">Authentication</text>
+  <text x="510" y="220" font-family="Arial" font-size="11">User Validation</text>
+  
+  <!-- System to Database -->
+  <line x1="500" y1="450" x2="500" y2="540" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="500" y1="540" x2="500" y2="450" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="510" y="495" font-family="Arial" font-size="12" font-weight="bold">CRUD Operations</text>
+  <text x="510" y="510" font-family="Arial" font-size="11">Data Persistence</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

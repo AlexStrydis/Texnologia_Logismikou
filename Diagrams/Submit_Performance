@@ -1,0 +1,152 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Sequence Diagram - Submit Performance</text>
+  
+  <!-- Actors/Objects -->
+  <!-- Artist -->
+  <rect x="50" y="70" width="100" height="50" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="100" y="100" text-anchor="middle" font-family="Arial" font-size="14">Artist</text>
+  <line x1="100" y1="120" x2="100" y2="850" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- UI -->
+  <rect x="220" y="70" width="100" height="50" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="270" y="100" text-anchor="middle" font-family="Arial" font-size="14">UI</text>
+  <line x1="270" y1="120" x2="270" y2="850" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Controller -->
+  <rect x="390" y="70" width="100" height="50" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="440" y="100" text-anchor="middle" font-family="Arial" font-size="14">Controller</text>
+  <line x1="440" y1="120" x2="440" y2="850" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Service -->
+  <rect x="560" y="70" width="100" height="50" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="610" y="100" text-anchor="middle" font-family="Arial" font-size="14">Service</text>
+  <line x1="610" y1="120" x2="610" y2="850" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Repository -->
+  <rect x="730" y="70" width="100" height="50" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="780" y="100" text-anchor="middle" font-family="Arial" font-size="14">Repository</text>
+  <line x1="780" y1="120" x2="780" y2="850" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Database -->
+  <rect x="900" y="70" width="100" height="50" fill="#e6f3ff" stroke="#4a90e2" stroke-width="2"/>
+  <text x="950" y="100" text-anchor="middle" font-family="Arial" font-size="14">Database</text>
+  <line x1="950" y1="120" x2="950" y2="850" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Security -->
+  <rect x="1070" y="70" width="100" height="50" fill="#fff0e6" stroke="#e2a04a" stroke-width="2"/>
+  <text x="1120" y="100" text-anchor="middle" font-family="Arial" font-size="14">Security</text>
+  <line x1="1120" y1="120" x2="1120" y2="850" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Messages -->
+  
+  <!-- 1. Fill Performance Form -->
+  <line x1="100" y1="150" x2="270" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="185" y="145" text-anchor="middle" font-family="Arial" font-size="12">1: fillPerformanceForm()</text>
+  <rect x="270" y="150" width="5" height="20" fill="#333"/>
+  
+  <!-- 2. Submit Performance -->
+  <line x1="270" y1="190" x2="440" y2="190" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="355" y="185" text-anchor="middle" font-family="Arial" font-size="12">2: submitPerformance(data)</text>
+  <rect x="440" y="190" width="5" height="460" fill="#333"/>
+  
+  <!-- 3. Check Authentication -->
+  <line x1="440" y1="210" x2="1120" y2="210" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="780" y="205" text-anchor="middle" font-family="Arial" font-size="12">3: validateAuthentication(token)</text>
+  
+  <!-- 4. Return Auth Result -->
+  <line x1="1120" y1="230" x2="440" y2="230" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="780" y="245" text-anchor="middle" font-family="Arial" font-size="12">4: authenticationResult</text>
+  
+  <!-- 5. Validate Festival State -->
+  <line x1="440" y1="260" x2="610" y2="260" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="525" y="255" text-anchor="middle" font-family="Arial" font-size="12">5: validateFestivalState(festivalId)</text>
+  <rect x="610" y="260" width="5" height="370" fill="#333"/>
+  
+  <!-- 6. Find Festival -->
+  <line x1="610" y1="280" x2="780" y2="280" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="695" y="275" text-anchor="middle" font-family="Arial" font-size="12">6: findFestivalById(festivalId)</text>
+  <rect x="780" y="280" width="5" height="60" fill="#333"/>
+  
+  <!-- 7. SQL Query -->
+  <line x1="780" y1="300" x2="950" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="865" y="295" text-anchor="middle" font-family="Arial" font-size="11">7: SQL SELECT * FROM festivals WHERE id=?</text>
+  
+  <!-- 8. Festival Object -->
+  <line x1="950" y1="320" x2="780" y2="320" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="865" y="335" text-anchor="middle" font-family="Arial" font-size="11">8: Festival object</text>
+  
+  <!-- Alt box -->
+  <rect x="450" y="360" width="640" height="260" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="3,3"/>
+  <rect x="450" y="360" width="80" height="25" fill="#ffffcc" stroke="#666" stroke-width="1"/>
+  <text x="490" y="378" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">alt</text>
+  <text x="460" y="378" font-family="Arial" font-size="11">[festival.state == SUBMISSION]</text>
+  
+  <!-- Success path -->
+  <line x1="610" y1="400" x2="780" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="695" y="395" text-anchor="middle" font-family="Arial" font-size="12">9a: validateFields(data)</text>
+  
+  <line x1="780" y1="420" x2="610" y2="420" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="695" y="435" text-anchor="middle" font-family="Arial" font-size="11">10a: validation result</text>
+  
+  <line x1="610" y1="450" x2="780" y2="450" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="695" y="445" text-anchor="middle" font-family="Arial" font-size="12">11a: insertPerformance(data)</text>
+  
+  <line x1="780" y1="470" x2="950" y2="470" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="865" y="465" text-anchor="middle" font-family="Arial" font-size="11">12a: SQL INSERT INTO performances...</text>
+  
+  <line x1="950" y1="490" x2="780" y2="490" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="865" y="505" text-anchor="middle" font-family="Arial" font-size="11">13a: success</text>
+  
+  <line x1="780" y1="510" x2="610" y2="510" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="695" y="525" text-anchor="middle" font-family="Arial" font-size="11">14a: Performance object</text>
+  
+  <!-- Else separator -->
+  <line x1="450" y1="540" x2="1090" y2="540" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="460" y="555" font-family="Arial" font-size="11">[else]</text>
+  
+  <!-- Error path -->
+  <line x1="610" y1="580" x2="440" y2="580" stroke="#ff0000" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-red)"/>
+  <text x="525" y="575" text-anchor="middle" font-family="Arial" font-size="11" fill="#ff0000">9b: throw InvalidStateException</text>
+  
+  <!-- End alt -->
+  
+  <!-- Return to Controller -->
+  <line x1="610" y1="640" x2="440" y2="640" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="525" y="655" text-anchor="middle" font-family="Arial" font-size="11">15: result</text>
+  
+  <!-- Return to UI -->
+  <line x1="440" y1="670" x2="270" y2="670" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="355" y="685" text-anchor="middle" font-family="Arial" font-size="11">16: displayResult(status)</text>
+  
+  <!-- Another alt box for success/error display -->
+  <rect x="110" y="700" width="350" height="120" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="3,3"/>
+  <rect x="110" y="700" width="80" height="25" fill="#ffffcc" stroke="#666" stroke-width="1"/>
+  <text x="150" y="718" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">alt</text>
+  <text x="120" y="718" font-family="Arial" font-size="11">[submission successful]</text>
+  
+  <!-- Success message -->
+  <line x1="270" y1="740" x2="100" y2="740" stroke="#00cc00" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-green)"/>
+  <text x="185" y="735" text-anchor="middle" font-family="Arial" font-size="11" fill="#00cc00">17a: "Performance submitted successfully"</text>
+  
+  <!-- Else separator -->
+  <line x1="110" y1="770" x2="460" y2="770" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="120" y="785" font-family="Arial" font-size="11">[else]</text>
+  
+  <!-- Error message -->
+  <line x1="270" y1="800" x2="100" y2="800" stroke="#ff0000" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-red)"/>
+  <text x="185" y="795" text-anchor="middle" font-family="Arial" font-size="11" fill="#ff0000">17b: error message</text>
+  
+  <!-- Arrow marker definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ff0000"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#00cc00"/>
+    </marker>
+  </defs>
+</svg>
